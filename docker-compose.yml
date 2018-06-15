@@ -33,3 +33,15 @@ python:
     - ./script/:/root/script/
   environment:
     - 'TZ=Asia/Tokyo'
+
+ruby:
+  build: './ruby-selenium'
+  container_name: 'ruby'
+  links:
+    - selenium-hub:hub
+  command: 'tail -f /dev/null'
+  working_dir: '/root/script/'
+  volumes:
+    - ./script/:/root/script/
+  environment:
+    - 'TZ=Asia/Tokyo'
